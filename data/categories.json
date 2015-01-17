@@ -1,0 +1,15 @@
+{ "categories": [
+	{ "id": "1", "name": "Longueur"},
+	{ "id": "2", "name": "Masse"},
+	{ "id": "3", "name": "Température"},
+	{ "id": "4", "name": "Surface"},
+	{ "id": "5", "name": "Volume"},
+	{ "id": "6", "name": "Energie"},
+	{ "id": "7", "name": "Octets / bits"},
+	{ "id": "8", "name": "Accélération"},
+	{ "id": "9", "name": "Angle"},
+	{ "id": "10", "name": "Charge électrique"},
+	{ "id": "11", "name": "Débit"},
+	{ "id": "12", "name": "Pression"},
+	{ "id": "13", "name": "Puissance"}
+]}

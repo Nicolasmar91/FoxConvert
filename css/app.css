@@ -1,0 +1,35 @@
+ header {
+ 	height:5rem;
+	background: -webkit-linear-gradient(#2397cd, #2d69bb); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#2397cd, #2d69bb); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#2397cd, #2d69bb); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#2397cd, #2d69bb); /* Standard syntax */
+}
+
+header div {
+ 	height:5rem;
+}
+
+header div:before {    
+	content: ' ';
+    display: inline-block;
+    vertical-align: middle; 
+    height: 100%;
+}
+
+header div img {
+	display: inline-block ;
+    vertical-align: middle;
+}
+
+header div h1 {
+	display: inline-block ;
+    vertical-align: middle;
+    margin:0;
+    color:white;
+}
+
+/* CLASSES SPECIFIQUES */
+.center{
+	text-align: center;
+}
