@@ -1,9 +1,15 @@
+ body{
+ }
+
  header {
  	height:5rem;
 	background: -webkit-linear-gradient(#2397cd, #2d69bb); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#2397cd, #2d69bb); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#2397cd, #2d69bb); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#2397cd, #2d69bb); /* Standard syntax */
+	position: fixed;
+	width:100%;
+	z-index:9999;
 }
 
 header div {
@@ -29,7 +35,27 @@ header div h1 {
     color:white;
 }
 
+section{
+	margin-top: 5rem;
+	
+}
+
 /* CLASSES SPECIFIQUES */
-.center{
-	text-align: center;
+.noPadding{
+	padding: 0 0 0 0;
+}
+.noMargin{
+	margin: 0 0 0 0;
+}
+.highLigth{
+	background: #c7c7c7;
+}
+.noBorder{
+	border:none;
+}
+.list-group{
+	margin-bottom: 0;
+}
+#main .disabled{
+	color:#ebebeb;
 }

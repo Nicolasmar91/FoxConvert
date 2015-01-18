@@ -2,10 +2,12 @@
  * Scrolling
  * ---------------------------------- */
 nav[data-type="scrollbar"] {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
+  top: calc(5rem + 40px);/* la hauteur du header + celle du sous titre*/
+  background: url(../images/bg-nav.png);
  }
 
 /* Mirror */
@@ -51,7 +53,7 @@ nav[data-type="scrollbar"] li {
   text-align: center;
   text-transform: uppercase;
   width: 4.5rem;
-  height: 3.44%; /* 100% / 29 items */
+  height: 3.70%; /* 100% / 27 items */
 }
 
 nav[data-type="scrollbar"] li a {
@@ -78,12 +80,12 @@ nav[data-type="scrollbar"] li span:not([hidden]) {
 }
 
 nav[data-type="scrollbar"] li .pack-icon-search {
-  background-image: url(scrolling/images/icons/search.svg);
+  background-image: url(../images/search.svg);
   background-size: 1.8rem
 }
 
 nav[data-type="scrollbar"] li .pack-icon-favorites {
-  background-image: url(scrolling/images/icons/favorites.svg);
+  background-image: url(../images/favorites.svg);
 }
 
 /* Themes */
