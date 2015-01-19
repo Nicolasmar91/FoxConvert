@@ -8,14 +8,19 @@
 	{ "id": "7", "name": "Octets"},
 	{ "id": "8", "name": "Accélération"},
 	{ "id": "9", "name": "Angle"},
-	{ "id": "10", "name": "Charge électrique"},
+	{ "id": "10", "name": "Intensité électrique"},
 	{ "id": "11", "name": "Débit"},
 	{ "id": "12", "name": "Pression"},
 	{ "id": "13", "name": "Puissance"},
 	{ "id": "14", "name": "Vitesse"},
 	{ "id": "15", "name": "Temps"},
-	{ "id": "16", "name": "Quantité de matière"}
-
-
-
+	{ "id": "16", "name": "Quantité de matière"},
+	{ "id": "17", "name": "Capacité éléctrique"},
+	{ "id": "18", "name": "Radioactivité"},
+	{ "id": "19", "name": "Vitesse angulaire"},
+	{ "id": "20", "name": "Energie cinétique"},
+	{ "id": "21", "name": "Couple mécanique"},
+	{ "id": "22", "name": "Masse volumique"}
+	{ "id": "23", "name": "Concentration molaire"},
+	{ "id": "24", "name": "Force"}
 ]}
