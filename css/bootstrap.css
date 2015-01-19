@@ -5703,24 +5703,28 @@ button.close {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1060;
+  z-index: 99000;
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
   font-weight: normal;
-  line-height: 1.42857143;
   text-align: left;
   white-space: normal;
-  background-color: #fff;
-  -webkit-background-clip: padding-box;
-          background-clip: padding-box;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, .2);
-  border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  background-color: black;
+  font-size: 4rem;
+  font-weight: 200;
+  height:7rem;
+  width:7rem;
+  text-align: center;
+  line-height: 1.4;
+  color:white;
+
+}
+.popover:before {    
+  content: ' ';
+    display: inline-block;
+    vertical-align: middle; 
+    height: 100%;
 }
 .popover.top {
   margin-top: -10px;
@@ -5732,7 +5736,7 @@ button.close {
   margin-top: 10px;
 }
 .popover.left {
-  margin-left: -10px;
+  margin-left: 0px;
 }
 .popover-title {
   padding: 8px 14px;
@@ -5744,11 +5748,13 @@ button.close {
 }
 .popover-content {
   padding: 9px 14px;
+  display: inline-block ;
+  vertical-align: middle;
 }
 .popover > .arrow,
 .popover > .arrow:after {
   position: absolute;
-  display: block;
+  display: none;
   width: 0;
   height: 0;
   border-color: transparent;

@@ -1,4 +1,6 @@
  body{
+ 	font-family: "Fira Sans";
+ 	overflow: hidden;
  }
 
  header {
@@ -8,6 +10,7 @@
 	background: -moz-linear-gradient(#2397cd, #2d69bb); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#2397cd, #2d69bb); /* Standard syntax */
 	position: fixed;
+	top:0px;
 	width:100%;
 	z-index:9999;
 }
@@ -35,9 +38,14 @@ header div h1 {
     color:white;
 }
 
-section{
-	margin-top: 5rem;
-	
+
+
+#content{
+	position: absolute;
+	top: 5rem;
+	height: calc(100% - 5rem);
+	width:100%;
+	overflow: auto;
 }
 
 /* CLASSES SPECIFIQUES */

@@ -1,9 +1,30 @@
 $(document).ready(function(){
+
+
+//------- DECLARATION DE VARIABLE ET FONCTIONS -------
 var categories = [];
 var units = [];
 var constants = [];
 var constantsCategories = [];
+var listLetter = [];
+//var listDisplayLetter = [];
+var decalageHeader = $('nav[data-type="scrollbar"]').position().top;
+var hauteurBloc=$('a[href="#anchor_A"]').parent().height();
+var initialPos = $("nav[data-type=\"scrollbar\"]").position().top;
+var screenIsScrolled = false; //sert a savoir s'il faut recalculer les position des "lettres"
 
+function calcLetterPos(){
+	$.each($('a[href^="#anchor_"]'),function(){
+		listLetter.push({letter : $(this).html(), 
+						 top:$(this).position().top,
+						 a:$(this)});
+	});
+}
+//----------------------------------------------------
+
+
+//--------------- CODE PAGE D'ACCUEIL ----------------
+calcLetterPos();
 //[start]chargement du contenu des fichier .json du dossier "data" dans les variables globales
 $.getJSON( "data/categories.json", function( data ) {
 	$.each(data.categories,function(index,obj){
@@ -39,13 +60,22 @@ $.getJSON( "data/categories.json", function( data ) {
                                 });
 				var letter="";
 				var idAnchor="";
+
 				$.each(categories,function(i,obj){
-					console.log(letter+" - "+obj.name.substr(0,1).toUpperCase())
 					if(letter!=obj.name.substr(0,1).toUpperCase()){
 						letter=obj.name.substr(0,1).toUpperCase();
-						idAnchor="id=\"anchor_"+letter+"\"";
-						$("a[href=\"#anchor_"+letter+"\"]").removeClass("disabled");
-						$("a[href=\"#anchor_"+letter+"\"]").click(function(e){
+						idAnchor='id="anchor_'+letter+'"';
+
+						//liste des lettre du scroll
+						$('a[href="#anchor_'+letter+'"]').removeClass("disabled");
+						/*
+						listDisplayLetter.push({letter : letter, 
+												top:$('a[href="#anchor_'+letter+'"]').parent().position().top,
+												a:$('a[href="#anchor_'+letter+'"]')});
+						*/
+
+						//rendre la letre cliquable avec une ancre prenant en compte la taille du header
+						$('a[href="#anchor_'+letter+'"]').click(function(e){
 							e.preventDefault();
 							window.location = $(this).attr('href');
 							$(window).scrollTop($(window).scrollTop()-$("header").height());
@@ -53,8 +83,11 @@ $.getJSON( "data/categories.json", function( data ) {
 					}else{
 						idAnchor="";
 					}
-					$("#liste").append("<a "+idAnchor+" href=\"#"+obj.name.substr(0,1)+"\" class=\"list-group-item\">"+obj.name+"</a>");
+
+					//ajout de la lettre au scroll
+					$("#liste").append("<a "+idAnchor+" class=\"list-group-item\">"+obj.name+"</a>");
 				});
+				$('[data-toggle="popover"]').popover({trigger: 'manual'}); 
 			});
 		});
 	});
@@ -62,17 +95,34 @@ $.getJSON( "data/categories.json", function( data ) {
 //[end] chargement
 
 
-//[start] move of scroll bar
-var initialPos = $("nav[data-type=\"scrollbar\"]").position().top;
-$(window).scroll(function() {
-	if($(window).scrollTop()<=$("#sousTitre").outerHeight(true)){
-		$("nav[data-type=\"scrollbar\"]").css({ top: (initialPos-$(window).scrollTop()) });
-	}else{
-		$("nav[data-type=\"scrollbar\"]").css({ top: ($("header").height())});
-	}	
+ $('a[href^="#anchor_"]').bind('touchstart', function(e) {
+	$("#content").css({overflow:"hidden"});
 });
-//[end]
+$('a[href^="#anchor_"]').bind('touchend', function(e) {
+	$("#content").css({overflow:"auto"});
+	$('a[href^="#anchor_"]').popover("hide");
+});
 
+//on ajoute l'evenement touchmove pour les appareils mobiles
+$('a[href^="#anchor_"]').bind('touchmove', function(e) {
+    var pointY = e.originalEvent.touches[0].clientY;
+    //on parcourt les lettre et on click() celle ou se trouve le "doigt"
+    $.each(listLetter,function(i,obj){
+    	if(pointY > obj.top + decalageHeader && pointY < (obj.top + hauteurBloc + decalageHeader)){
+    		obj.a.click();
+    		obj.a.popover("show");
+    	}else{
+    		obj.a.popover("hide");
+    	}
+    });
+});
 
+//ce code modifie l'affichage de la popover de base, pour eviter qu'elle soit "actualiser" lors d'un scroll 
+//sur la meme lettre, declanchant l'evenement touchemove
+$('a[href^="#anchor_"]').on('show.bs.popover', function (e) {
+	if($(e.currentTarget).attr("aria-describedby"))
+		e.preventDefault();
+})
+//---------------------------------------------
 
 });
