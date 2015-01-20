@@ -4,7 +4,6 @@
 nav[data-type="scrollbar"] {
   position: fixed;
   right: 0;
-  top: 0;
   bottom: 0;
   top: calc(5rem + 40px);/* la hauteur du header + celle du sous titre*/
   background: url(../images/bg-nav.png);
