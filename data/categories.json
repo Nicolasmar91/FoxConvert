@@ -20,7 +20,7 @@
 	{ "id": "19", "name": "Vitesse angulaire"},
 	{ "id": "20", "name": "Energie cinétique"},
 	{ "id": "21", "name": "Couple mécanique"},
-	{ "id": "22", "name": "Masse volumique"},
+	{ "id": "22", "name": "Masse volumique"}
 	{ "id": "23", "name": "Concentration molaire"},
 	{ "id": "24", "name": "Force"}
 ]}
