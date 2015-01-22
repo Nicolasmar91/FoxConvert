@@ -91,11 +91,17 @@ $.getJSON( "data/categories.json", function( data ) {
 
 				//evenement permetant de passé dans la catégorie selectionnée
 				$('#liste a').click(function(){
-					$("#content").fadeOut(150);
+					$("#secondaryTitle").html($(this).html());
+					$("#content").fadeOut(100,function(){
+						$("#secondaryTitle").fadeIn(50);
+						$("#conversion").show();
+						$("#navBack").show();
+						$("#navHeader").addClass("navHover bgDark");
+					});
 					$("#mainTitle").hide();
 					$("#titleArea").addClass("sep");
-					$("#secondaryTitle").fadeIn(50);
 					$("#secondaryTitle").html($(this).html());
+					$("#secondaryTitle").fadeIn(50);
 					var i=1;
 					while($("#secondaryTitle").outerHeight()>=$("#titleArea").innerHeight() || $("#secondaryTitle").outerWidth()>=$("#titleArea").innerWidth()-16){
 						$("#secondaryTitle").css('font-size', initialH1Size - i);
@@ -103,9 +109,6 @@ $.getJSON( "data/categories.json", function( data ) {
 						console.log($("#secondaryTitle").outerHeight()+" - "+$("#titleArea").innerHeight());
 						console.log($("#secondaryTitle").outerWidth()+" - "+$("#titleArea").innerWidth());
 					}
-					$("#conversion").show();
-					$("#navBack").show();
-					$("#navHeader").addClass("navHover bgDark");
 				});
 			});
 		});

@@ -46,7 +46,21 @@ header div h1 {
 	height: calc(100% - 5rem);
 	width:100%;
 	overflow: auto;
-	transition:top 0.8s;
+}
+#settings{
+	position: absolute;
+	top: 5rem;
+	height: calc(100% - 5rem);
+	width:100%;
+	overflow: auto;
+}
+#conversion{
+	display: none;
+	position: absolute;
+	top: 5rem;
+	height: calc(100% - 5rem);
+	width:100%;
+	overflow: auto;
 }
 #navBack{
 	display:none;
