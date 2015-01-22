@@ -36,9 +36,9 @@ header div h1 {
     vertical-align: middle;
     margin:0;
     color:white;
+    top:2px;
+    position: relative;
 }
-
-
 
 #content{
 	position: absolute;
@@ -46,9 +46,30 @@ header div h1 {
 	height: calc(100% - 5rem);
 	width:100%;
 	overflow: auto;
+	transition:top 0.8s;
+}
+#navBack{
+	display:none;
+}
+#titleArea{
+	padding-left: 8px;
+	padding-right: 8px;
+}
+.bgDark{
+	background: rgba(0,0,0,0.2);
 }
 
 /* CLASSES SPECIFIQUES */
+.sep{
+	background: url(../images/separator.png);
+	background-repeat: repeat-y;
+	background-position: left center;
+}
+.sepSmall{
+	background: url(../images/separator-small.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
 .noPadding{
 	padding: 0 0 0 0;
 }
@@ -64,6 +85,16 @@ header div h1 {
 .list-group{
 	margin-bottom: 0;
 }
+.navHover{
+	cursor: pointer;
+}
+.navHover:hover{
+	background: rgba(0,0,0,0.2);
+}
+.navHover:active{
+	background: rgba(0,0,0,0.3);
+}
 #main .disabled{
 	color:#ebebeb;
 }
+

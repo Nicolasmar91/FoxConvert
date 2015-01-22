@@ -22,22 +22,31 @@
   <body>
      <div>
         <header class="row noMargin">
-        <div class="col-xs-1">
+        <div class="col-xs-1 noPadding">
+          <div id="navHeader" class="col-xs-12 noPadding">
+            <img src="images/back-small.png" id="navBack" alt="retour"/>
+          </div>
         </div>
-        <div class="col-xs-9">
-          <h1>FoxConvert</h1>
+        <div class="col-xs-9 noPadding" id="titleArea" >
+
+          <h1 id="mainTitle">FoxConvert</h1>
+          <h1 id="secondaryTitle"></h1>
         </div>
-        <div class="col-xs-2 text-center">
+        <div class="col-xs-2 navHover text-center sepSmall noPadding">
           <img src="images/menu.png"/>
         </div>
       </header>
+
+      <!-- Page d'accueil -->
       <div class="row noMargin" id="content">
-        <section  class="col-xs-12 noPadding" id="liste">
+        <section  class="col-xs-12 noPadding">
           <div id="sousTitre" class="list-group-item text-center highLigth noBorder">Selectionnez une catégorie</div>
           <div id="liste" class="list-group">
           </div>
         </section>
+
         <section role="region" id="main">
+        <!-- liste scrollable -->
         <nav data-type="scrollbar">
           <ol>
             <li><a data-toggle="popover" data-placement="left" data-content="A" class="disabled" href="#anchor_A">A</a></li>
@@ -69,6 +78,17 @@
           </ol>
         </nav>
         </section>
+      </div>
+
+      <!-- Page de conversion -->
+      <div class="row noMargin" id="conversion">
+        <h2>ici on convertit ouais gros</h2>
+        <h2>ici on convertit ouais gros</h2>
+        <h2>ici on convertit ouais gros</h2>
+        <h2>ici on convertit ouais gros</h2>
+        <h2>ici on convertit ouais gros</h2>
+        <h2>ici on convertit ouais gros</h2>
+        <h2>ici on convertit ouais gros</h2>
       </div>
       <footer class="row">
       </footer>
