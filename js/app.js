@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-
 //------- DECLARATION DE VARIABLE ET FONCTIONS -------
+var initialH1Size = 2.5 * 10; //2.5 rem - 1 rem = 10px
 var categories = [];
 var units = [];
 var constants = [];
@@ -88,6 +88,25 @@ $.getJSON( "data/categories.json", function( data ) {
 					$("#liste").append("<a "+idAnchor+" class=\"list-group-item\">"+obj.name+"</a>");
 				});
 				$('[data-toggle="popover"]').popover({trigger: 'manual'}); 
+
+				//evenement permetant de passé dans la catégorie selectionnée
+				$('#liste a').click(function(){
+					$("#content").fadeOut(150);
+					$("#mainTitle").hide();
+					$("#titleArea").addClass("sep");
+					$("#secondaryTitle").fadeIn(50);
+					$("#secondaryTitle").html($(this).html());
+					var i=1;
+					while($("#secondaryTitle").outerHeight()>=$("#titleArea").innerHeight() || $("#secondaryTitle").outerWidth()>=$("#titleArea").innerWidth()-16){
+						$("#secondaryTitle").css('font-size', initialH1Size - i);
+						i++;
+						console.log($("#secondaryTitle").outerHeight()+" - "+$("#titleArea").innerHeight());
+						console.log($("#secondaryTitle").outerWidth()+" - "+$("#titleArea").innerWidth());
+					}
+					$("#conversion").show();
+					$("#navBack").show();
+					$("#navHeader").addClass("navHover bgDark");
+				});
 			});
 		});
 	});
@@ -125,4 +144,20 @@ $('a[href^="#anchor_"]').on('show.bs.popover', function (e) {
 })
 //---------------------------------------------
 
+
+
+//---------------- conversion -----------------
+$("#navHeader").click(function(){
+	$("#content").fadeIn(150);
+	$("#mainTitle").show();
+	$("#titleArea").removeClass("sep");
+	$("#secondaryTitle").hide();
+	$("#mainTitle").fadeIn(50);
+	$("#conversion").hide();
+	$("#navBack").hide();
+	$("#navHeader").removeClass("navHover bgDark");
+
+	//on replace la fenetre en haut
+	$("#content").scrollTop(0);
+});
 });
