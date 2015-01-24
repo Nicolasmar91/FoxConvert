@@ -40,6 +40,9 @@ header div h1 {
     position: relative;
 }
 
+h1{
+}
+
 #content{
 	position: absolute;
 	top: 5rem;
@@ -69,11 +72,23 @@ header div h1 {
 	padding-left: 8px;
 	padding-right: 8px;
 }
-.bgDark{
-	background: rgba(0,0,0,0.2);
+#resultat{
+	margin:15px;
+	margin-top: 30px;
+	padding: 1px;
+	font-size: 7rem;
+	line-height: 7rem;
 }
 
 /* CLASSES SPECIFIQUES */
+.bgDark{
+	background: rgba(0,0,0,0.2);
+}
+.minimize{
+	color:#555;
+	font-size: 3rem;
+	margin-left: 5px;
+}
 .sep{
 	background: url(../images/separator.png);
 	background-repeat: repeat-y;
@@ -110,5 +125,9 @@ header div h1 {
 }
 #main .disabled{
 	color:#ebebeb;
+}
+.mainInput{
+	height: 50px;
+	font-size: 2rem;
 }
 

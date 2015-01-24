@@ -1,0 +1,13 @@
+{ 
+"menu_fr": [
+	{ "label":"Conversion","href":"index.html"},
+	{ "label":"Mémo des constantes","href":"constants.html"},
+	{ "label":"Paramètres","href":"settings.html"},
+	{ "label":"A propos","href":"about.html"}
+],
+"menu_en":[
+	{ "label":"Convert","href":"index.html"},
+	{ "label":"Constants list","href":"constants.html"},
+	{ "label":"Settings","href":"settings.html"},
+	{ "label":"About","href":"about.html"}
+]}

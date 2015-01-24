@@ -8,13 +8,16 @@
 
     <!-- JAVASCRIPT links -->
     <script src="js/jquery.min.js" defer></script>
+    <script src="js/loadMenu.js" defer></script>
     <script src="js/app.js" defer></script>
+    <script src="js/bootstrap-select.min.js" defer></script>
     <script src="js/bootstrap.js" defer></script>
     
 
     <!-- CSS links -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/scrolling.css" rel="stylesheet">
+    <link href="css/bootstrap-select.css" rel="stylesheet">
     <link href="css/util.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
   </head>
@@ -35,10 +38,6 @@
         <div id="menu" class="col-xs-2 dropdown navHover text-center sepSmall noPadding">
           <img data-toggle="dropdown" class="dropdown-toggle" src="images/menu.png"/>
           <ul style="margin-right:2px;" class="dropdown-menu pull-right">
-              <li><a href="index.html">Conversion</a></li>
-              <li><a href="#">Mémo des constantes</a></li>
-              <li><a href="settings.html">Paramètres</a></li>
-              <li><a href="about.html">A propos</a></li>
           </ul>
         </div>
       </header>
@@ -88,15 +87,53 @@
 
       <!-- Page de conversion -->
       <div class="row noMargin" id="conversion">
-        <h2>ici on convertit ouais gros</h2>
-        <h2>ici on convertit ouais gros</h2>
-        <h2>ici on convertit ouais gros</h2>
-        <h2>ici on convertit ouais gros</h2>
-        <h2>ici on convertit ouais gros</h2>
-        <h2>ici on convertit ouais gros</h2>
-        <h2>ici on convertit ouais gros</h2>
-      </div>
+        <div class="col-xs-12"> 
+          <h1 class="text-center">Convertir des </h1> 
+        </div>
+        <div class="col-xs-12">
+          <select data-show-subtext="true" data-width="100%"class="selectpicker show-tick">
+            <option data-subtext="Heinz">Ketchup</option>
+            <option data-subtext="Heinz">Ketchup</option>
+          </select>
+          <br/>
+          <br/>
+        </div>
+        <div class="col-xs-12"> 
+          <h1 class="text-center">En</h1>
+        </div>
+        <div class="col-xs-12">
+          <select data-show-subtext="true" data-width="100%"class="selectpicker show-tick">
+            <option data-subtext="Heinz">Ketchup</option>
+            <option data-subtext="Heinz">Ketchup</option>
+          </select>
+          <br/>
+          <br/>
+          <br/>
+        </div>
+        <div  class="col-xs-12">
+          <div class="noMargin row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-8">
+              <input type="text" class="form-control mainInput" placeholder="Valeur à convertir">
+            </div>
+            <div class="col-xs-2">
+            </div>
+          </div>  
+        </div>
 
+        <div  class="col-xs-12">
+          <div class="noMargin row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-8">
+              <p id="resultat" class="text-center"><span id="value">32,9</span><span class="minimize">cm</span></p>
+            </div>
+            <div class="col-xs-2">
+            </div>
+          </div>  
+        </div>
+      </div>
       <footer class="row">
       </footer>
     </div>
