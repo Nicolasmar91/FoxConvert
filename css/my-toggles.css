@@ -1,0 +1,53 @@
+.toggle-slide {
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  direction: ltr;
+}
+.toggle-slide .toggle-on,
+.toggle-slide .toggle-off,
+.toggle-slide .toggle-blob {
+  float: left;
+}
+.toggle-slide .toggle-blob {
+  position: relative;
+  z-index: 99;
+  cursor: hand;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.toggle-light .toggle-slide {
+  border-radius: 9999px;
+}
+.toggle-light .toggle-on,
+.toggle-light .toggle-off {
+  font-size: 11px;
+  font-weight: 500;
+  color:white;
+}
+.toggle-light .toggle-on,
+.toggle-light .toggle-select .toggle-inner .active {
+  background: -webkit-linear-gradient(#00c7ef, #00d3f5);
+  background: linear-gradient(#00c7ef, #00d3f5);
+    color:white;
+
+}
+.toggle-light .toggle-off,
+.toggle-light .toggle-select .toggle-on {
+  color:white;
+  background: #f1f1f1;
+}
+.toggle-light .toggle-blob {
+  border-radius: 50px;
+  background: white;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  border:2px solid #00d3f5;
+
+}

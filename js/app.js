@@ -2,12 +2,15 @@ $(document).ready(function(){
 
 	//------- DECLARATION DE VARIABLE ET FONCTIONS -------
 	var initialH1Size = 2.5 * 10; //2.5 rem - 1 rem = 10px
+	var initialOutputSize = 7 * 10; //7rem
+	var initialMinimizeSize = 3 * 10; //7rem
 	var categories = [];
 	var units = [];
 	var constants = [];
 	var constantsCategories = [];
 	var listLetter = [];
 	//var listDisplayLetter = [];
+	var distanceToScrollWhenKBisShow=0;
 	var decalageHeader = $('nav[data-type="scrollbar"]').position().top;
 	var hauteurBloc=$('a[href="#anchor_A"]').parent().height();
 	var initialPos = $("nav[data-type=\"scrollbar\"]").position().top;
@@ -35,6 +38,31 @@ $(document).ready(function(){
 			}
 		});
 		$("#unitsIn, #unitsOut").selectpicker("refresh");
+	}
+
+	function majDisplay(){
+		 //affichge du resultat
+        $("#resultat .minimize").css('font-size', initialMinimizeSize+"px");
+        $("#resultat").css('line-height', initialOutputSize+"px");
+		$("#output").css('font-size', initialOutputSize+"px");
+
+        //on adapte la taille en fonction du nombre de decimal	
+        var i=1;
+		while($("#resultat").outerWidth()<=$("#output").innerWidth()){
+			$("#output").css('font-size', (initialOutputSize - i)+"px");
+     	    $("#resultat").css('line-height', (initialOutputSize - i)+"px");
+
+			if($("#resultat .minimize").css("font-size").substr(0,2)>12){
+				$("#resultat .minimize").css('font-size', (initialMinimizeSize - i)+"px");
+			}
+			i++;
+		}
+
+		//$("#resultat").css("margin-right",15+$("#resultat .minimize").width()/2);
+
+        $("#unitsOut").selectpicker("render");
+    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
+
 	}
 	//----------------------------------------------------
 
@@ -205,6 +233,11 @@ $(document).ready(function(){
 		$("#navBack").hide();
 		$("#navHeader").removeClass("navHover bgDark");
 
+		//on réinitialise les precedent calcul/affichages
+		$("#input").val("");
+		$("#output").html("");
+		$("#resultat .minimize").html("");
+
 		//on replace la fenetre en haut
 		$("#content").scrollTop(0);
 	});
@@ -215,12 +248,18 @@ $(document).ready(function(){
 		if($.isNumeric($(this).val())){
 	        var nmb = new Number(($(this).val() * $("#unitsIn").val()) / $("#unitsOut").val());
 
-	        if (nmb > 100000 || nmb < 0.00001) {
+	        if (nmb > 99999 || nmb < 0.00001) {
 	            $("#output").html(nmb.toExponential());
 	        } else {
 	            $("#output").html(nmb);
 	        }
 	    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
+			majDisplay();
+		}
+
+		if($(this).val()==""){
+			$("#output").html("");
+			$("#resultat span.minimize").html("");
 		}  
 	});
 
@@ -233,8 +272,15 @@ $(document).ready(function(){
 	        } else {
 	            $("#output").html(nmb);
 	        }
-	        $("#unitsOut").selectpicker("render");
-	    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
+	        majDisplay();
 		}  
+	});
+
+	//quand le clavier apparait on scroll pour afficher le resultat au dessus du clavier
+	$(window).resize(function(){
+		if(distanceToScrollWhenKBisShow==0)
+			distanceToScrollWhenKBisShow = $("br.beforeValToconvert").offset().top;
+		
+		$("#conversion").scrollTop(distanceToScrollWhenKBisShow);
 	});
 });

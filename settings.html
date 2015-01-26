@@ -8,15 +8,22 @@
 
     <!-- JAVASCRIPT links -->
     <script src="js/jquery.min.js" defer></script>
-    <script src="js/bootstrap.js" defer></script>
     <script src="js/loadMenu.js" defer></script>
+    <script src="js/bootstrap-select.min.js" defer></script>
+    <script src="js/bootstrap.js" defer></script>
+    <script src="js/numeric.js" defer></script>
+    <script src="js/settings.js" defer></script>
+    <script src="js/toggles.js" defer></script>
 
 
     <!-- CSS links -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/scrolling.css" rel="stylesheet">
+    <link href="css/my-toggles.css" rel="stylesheet">
+    <link href="css/bootstrap-select.css" rel="stylesheet">
     <link href="css/util.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
+
   </head>
 
   <body>
@@ -28,9 +35,7 @@
           </div>
         </div>
         <div class="col-xs-9 noPadding" id="titleArea" >
-
           <h1 id="mainTitle">Paramètres</h1>
-          <h1 id="secondaryTitle"></h1>
         </div>
         <div id="menu" class="col-xs-2 dropdown navHover text-center sepSmall noPadding">
           <img data-toggle="dropdown" class="dropdown-toggle" src="images/menu.png"/>
@@ -41,7 +46,32 @@
 
       <!-- Page de settings -->
       <div class="row noMargin" id="settings">
-        <h2>ici on page de reglages</h2>
+        <div class="col-xs-9">
+          <h2>Exponentiel uniquement</h2>
+        </div>
+        <div class="col-xs-2">
+          <h2 style="width:50px">
+            <div class="toggle toggle-light"></div>
+          </h2>
+        </div>
+        <div class="col-xs-12 noPadding">
+          <h2>Précision</h2>
+        </div>
+        <div class="col-xs-12">
+          <select id="precision" data-show-subtext="true" data-width="100%"class="selectpicker show-tick">
+            <option>yo</option>
+          </select>
+          <hr/>
+        </div>
+        <div class="col-xs-12 noPadding">
+          <h2>Language</h2>
+        </div>
+        <div class="col-xs-12">
+          <select id="language" data-show-subtext="true" data-width="100%"class="selectpicker show-tick">
+            <option>yo</option>
+          </select>
+          <hr/>
+        </div>
       </div>
 
       <footer class="row">
