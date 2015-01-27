@@ -17,11 +17,12 @@ $(document).ready(function(){
 	  type: 'compact' // if this is set to 'select' then the select style toggle will be used
 	});
 
-	$.getJSON( "data/translate.json", function( data ) {
-		$.each(data.menu_fr,function(index,obj){
-			if(window.location.href.indexOf(obj.href)<0)
-				$("#menu ul.dropdown-menu").append('<li><a href="'+obj.href+'">'+obj.label+'</a></li>')
-		});
+	$("#language").change(function(e,data){
+		if(data!="NO_RELOAD_LOCATION"){
+			localStorage.setItem("LANG",$(this).val());
+			location.reload();
+		}
+		
 	});
 
 });

@@ -34,7 +34,7 @@ $(document).ready(function(){
 			if(data.category==id){
 				if(data.coef==1)
 					selected="selected";
-				$("#unitsIn, #unitsOut").append('<option '+selected+' value="'+data.coef+'" symbol="'+data.symbol+'" idUnit="'+data.id+'" data-subtext="'+data.symbol+'">'+data.name+'</option>');
+				$("#unitsIn, #unitsOut").append('<option '+selected+' value="'+data.coef+'" data-subtext="'+data.symbol+'">'+data.name+'</option>');
 			}
 		});
 		$("#unitsIn, #unitsOut").selectpicker("refresh");
@@ -283,4 +283,20 @@ $(document).ready(function(){
 		
 		$("#conversion").scrollTop(distanceToScrollWhenKBisShow);
 	});
+
+	//on cache le span qui sert à stocker la traduction du placeholder
+	$("#placeHolderInput").hide();
+
+
+
+	//initialisation des parametre de reglage utilisateur
+	if(localStorage.length==0){
+		//valeur par defaut
+		localStorage.setItem("EXPONENTIAL",false);
+		localStorage.setItem("PRECISION",0.001);
+		localStorage.setItem("LANG","FR");
+	}
+
+
+	
 });

@@ -1,13 +1,7 @@
 { 
-"menu_fr": [
-	{ "label":"Conversion","href":"index.html"},
-	{ "label":"Mémo des constantes","href":"constants.html"},
-	{ "label":"Paramètres","href":"settings.html"},
-	{ "label":"A propos","href":"about.html"}
-],
-"menu_en":[
-	{ "label":"Convert","href":"index.html"},
-	{ "label":"Constants list","href":"constants.html"},
-	{ "label":"Settings","href":"settings.html"},
-	{ "label":"About","href":"about.html"}
+"menu": [
+	{ "label":"MENU_CONVERSION","href":"index.html"},
+	{ "label":"MENU_CONSTANTES","href":"constants.html"},
+	{ "label":"MENU_SETTINGS","href":"settings.html"},
+	{ "label":"MENU_ABOUT","href":"about.html"}
 ]}

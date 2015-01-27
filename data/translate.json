@@ -1,0 +1,41 @@
+{ 
+"FR": [
+	{ "key":"MENU_CONVERSION", "label":"Conversion"},
+	{ "key":"MENU_CONSTANTES", "label":"Mémo des constantes"},
+	{ "key":"MENU_SETTINGS", "label":"Paramètres"},
+	{ "key":"MENU_ABOUT", "label":"A propos"},
+
+	{ "key":"MENU_LNG_FR", "label":"Français", "code":"FR"},
+	{ "key":"MENU_LNG_EN", "label":"Anglais", "code":"EN"},
+
+	{ "key":"HOME_SELECT", "label":"Selectionnez une catégorie"},
+
+	{ "key":"CONVERSION_PLACEHOLDER", "label":"Valeur à convertir"},
+	{ "key":"CONVERSION_CONVERT", "label":"Convertir des"},
+	{ "key":"CONVERSION_INTO", "label":"En"},
+
+	{ "key":"SETTINGS", "label":"Paramètres"},
+	{ "key":"SETTINGS_LNG", "label":"Langage"},
+	{ "key":"SETTINGS_EXPO", "label":"Exponentiel uniquement"},
+	{ "key":"SETTINGS_PRECISION", "label":"Précision"}
+],
+"EN":[
+	{ "key":"MENU_CONVERSION", "label":"Convert"},
+	{ "key":"MENU_CONSTANTES", "label":"Constants list"},
+	{ "key":"MENU_SETTINGS", "label":"Settings"},
+	{ "key":"MENU_ABOUT", "label":"About"},
+
+	{ "key":"MENU_LNG_FR", "label":"French", "code":"FR"},
+	{ "key":"MENU_LNG_EN", "label":"English", "code":"EN"},
+
+	{ "key":"HOME_SELECT", "label":"Chose a category"},
+
+	{ "key":"CONVERSION_PLACEHOLDER", "label":"Value to convert"},
+	{ "key":"CONVERSION_CONVERT", "label":"Convert some"},
+	{ "key":"CONVERSION_INTO", "label":"Into"},
+
+	{ "key":"SETTINGS", "label":"Settings"},
+	{ "key":"SETTINGS_LNG", "label":"Language"},
+	{ "key":"SETTINGS_EXPO", "label":"Exponential only"},
+	{ "key":"SETTINGS_PRECISION", "label":"Precision"}
+]}

@@ -8,7 +8,7 @@
 
     <!-- JAVASCRIPT links -->
     <script src="js/jquery.min.js" defer></script>
-    <script src="js/loadMenu.js" defer></script>
+    <script src="js/loadTranslatesAndMenu.js" defer></script>
     <script src="js/app.js" defer></script>
     <script src="js/bootstrap-select.min.js" defer></script>
     <script src="js/bootstrap.js" defer></script>
@@ -45,7 +45,7 @@
       <!-- Page d'accueil -->
       <div class="row noMargin" id="content">
         <section  class="col-xs-12 noPadding">
-          <div id="sousTitre" class="list-group-item text-center highLigth noBorder">Selectionnez une catégorie</div>
+          <div id="sousTitre" class="list-group-item text-center highLigth noBorder"><span trad="HOME_SELECT"></span></div>
           <div id="liste" class="list-group">
           </div>
         </section>
@@ -88,7 +88,7 @@
       <!-- Page de conversion -->
       <div class="row noMargin" id="conversion">
         <div class="col-xs-12"> 
-          <h1 class="text-center">Convertir des </h1> 
+          <h1 class="text-center"><span trad="CONVERSION_CONVERT"></span></h1> 
         </div>
         <div class="col-xs-12">
           <select id="unitsIn" data-show-subtext="true" data-width="100%"class="selectpicker show-tick">
@@ -96,7 +96,7 @@
           <br/>
         </div>
         <div class="col-xs-12"> 
-          <h1 class="text-center">En</h1>
+          <h1 class="text-center"><span trad="CONVERSION_INTO"></h1>
         </div>
         <div class="col-xs-12">
           <select id="unitsOut" data-show-subtext="true" data-width="100%"class="selectpicker show-tick">
@@ -110,7 +110,8 @@
             <div class="col-xs-2">
             </div>
             <div class="col-xs-8">
-              <input type="text" id="input" class="form-control mainInput" placeholder="Valeur à convertir">
+              <span id="placeHolderInput" trad="CONVERSION_PLACEHOLDER"></span>
+              <input type="text" id="input" class="form-control mainInput" placeholder="">
             </div>
             <div class="col-xs-2">
             </div>
