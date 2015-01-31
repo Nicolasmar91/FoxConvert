@@ -29,7 +29,8 @@ $(document).ready(function(){
 		
 		//event pour actualiser les valeurs de la liste deroulante de choix des langues dans les paramètres
 		$("#fakeTrigger").trigger("change");
-		
+		$("#precision").selectpicker("refresh");
+
 		//on charge la dropdown ici car on a besoin des translates
 		$.getJSON( "data/menu.json", function( data ) {
 			$.each(data.menu,function(index,obj){
@@ -45,7 +46,8 @@ $(document).ready(function(){
 			$("#language").val(localStorage.getItem("LANG")).trigger('change',"NO_RELOAD_LOCATION").selectpicker("refresh");
 		});
 
-		//mettre la bonne traduction dans le placeHolder
+
+		//mettre la bonne traduction dans le placeHolder page de conversion
 		$("#input").attr("placeHolder",$("#placeHolderInput").html());
 	});   
 

@@ -16,7 +16,8 @@
 
 	{ "key":"SETTINGS", "label":"Paramètres"},
 	{ "key":"SETTINGS_LNG", "label":"Langage"},
-	{ "key":"SETTINGS_EXPO", "label":"Exponentiel uniquement"},
+	{ "key":"SETTINGS_EXPO", "label":"Notation exponentielle"},
+	{ "key":"SETTINGS_EXACT_VAL", "label":"Valeur exacte"},
 	{ "key":"SETTINGS_PRECISION", "label":"Précision"}
 ],
 "EN":[
@@ -36,6 +37,7 @@
 
 	{ "key":"SETTINGS", "label":"Settings"},
 	{ "key":"SETTINGS_LNG", "label":"Language"},
-	{ "key":"SETTINGS_EXPO", "label":"Exponential only"},
+	{ "key":"SETTINGS_EXPO", "label":"Exponential notation"},
+	{ "key":"SETTINGS_EXACT_VAL", "label":"Exact value"},
 	{ "key":"SETTINGS_PRECISION", "label":"Precision"}
 ]}

@@ -9,6 +9,8 @@ $(document).ready(function(){
 	var constants = [];
 	var constantsCategories = [];
 	var listLetter = [];
+	var echelleNeg = {"EXACTE":0.00000000000000000000000001, 0:1, 1:0.1, 2:0.01, 3:0.001, 4:0.0001, 5:0.00001 ,6:0.000001 ,7:0.0000001 ,8:0.00000001 ,9:0.00000001};
+	var echellePos = {"EXACTE":1000000000000000000000000000, 0:1, 1:10, 2:100, 3:1000, 4:10000, 5:100000 ,6:10000000 ,7:100000000 ,8:1000000000 ,9:10000000000};
 	//var listDisplayLetter = [];
 	var distanceToScrollWhenKBisShow=0;
 	var decalageHeader = $('nav[data-type="scrollbar"]').position().top;
@@ -52,7 +54,7 @@ $(document).ready(function(){
 			$("#output").css('font-size', (initialOutputSize - i)+"px");
      	    $("#resultat").css('line-height', (initialOutputSize - i)+"px");
 
-			if($("#resultat .minimize").css("font-size").substr(0,2)>12){
+			if($("#resultat .minimize").css("font-size").substr(0,2)>18){
 				$("#resultat .minimize").css('font-size', (initialMinimizeSize - i)+"px");
 			}
 			i++;
@@ -63,6 +65,31 @@ $(document).ready(function(){
         $("#unitsOut").selectpicker("render");
     	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
 
+	}
+
+	function doCalc(){
+		if($.isNumeric($("#input").val())){
+	        var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
+	        
+	        if(localStorage.getItem("PRECISION")=="EXACTE"){
+	        	$("#output").html(nmb);
+	        }else{
+	        	if (localStorage.getItem("EXPONENTIAL")=="true" && (nmb > echellePos[localStorage.getItem("PRECISION")]-1 || nmb < echelleNeg[localStorage.getItem("PRECISION")])) {
+	          	    console.log("ici");
+	          	    $("#output").html(nmb.toExponential(localStorage.getItem("PRECISION")));
+		        } else {
+		        	$("#output").html(parseFloat($.number(nmb,localStorage.getItem("PRECISION"),".","")));
+		        }
+	        }
+
+	    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
+			majDisplay();
+		}
+
+		if($(this).val()==""){
+			$("#output").html("");
+			$("#resultat span.minimize").html("");
+		}  
 	}
 	//----------------------------------------------------
 
@@ -244,37 +271,9 @@ $(document).ready(function(){
 
 	$("#input").numeric();
 
-	$("#input").keyup(function(){
-		if($.isNumeric($(this).val())){
-	        var nmb = new Number(($(this).val() * $("#unitsIn").val()) / $("#unitsOut").val());
+	$("#input").keyup(doCalc);
 
-	        if (nmb > 99999 || nmb < 0.00001) {
-	            $("#output").html(nmb.toExponential());
-	        } else {
-	            $("#output").html(nmb);
-	        }
-	    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
-			majDisplay();
-		}
-
-		if($(this).val()==""){
-			$("#output").html("");
-			$("#resultat span.minimize").html("");
-		}  
-	});
-
-	$("#unitsOut, #unitsIn").change(function(){
-		if($.isNumeric($("#input").val())){
-	        var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
-
-	        if (nmb > 100000 || nmb < 0.00001) {
-	            $("#output").html(nmb.toExponential());
-	        } else {
-	            $("#output").html(nmb);
-	        }
-	        majDisplay();
-		}  
-	});
+	$("#unitsOut, #unitsIn").change(doCalc);
 
 	//quand le clavier apparait on scroll pour afficher le resultat au dessus du clavier
 	$(window).resize(function(){
@@ -292,8 +291,8 @@ $(document).ready(function(){
 	//initialisation des parametre de reglage utilisateur
 	if(localStorage.length==0){
 		//valeur par defaut
-		localStorage.setItem("EXPONENTIAL",false);
-		localStorage.setItem("PRECISION",0.001);
+		localStorage.setItem("EXPONENTIAL","false");
+		localStorage.setItem("PRECISION",6);
 		localStorage.setItem("LANG","FR");
 	}
 
