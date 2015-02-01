@@ -118,46 +118,59 @@ $(document).ready(function(){
 					});
 				}).then(function(dataReturn,text,status){
 					categories.sort(function (a, b) {
-	                                    var leftKey = a.name.toUpperCase();
-	                                    var rightKey = b.name.toUpperCase();
+                        var leftKey = a.name.toUpperCase();
+                        var rightKey = b.name.toUpperCase();
 
-	                                    if (leftKey.charAt(0) == rightKey.charAt(0)) {
-	                                        if (leftKey.charAt(1) < rightKey.charAt(1)) { return -1; }
-	                                        else { return 1; }
-	                                    }
+                        if (leftKey.charAt(0) == rightKey.charAt(0)) {
+                            if (leftKey.charAt(1) < rightKey.charAt(1)) { return -1; }
+                            else { return 1; }
+                        }
 
-	                                    if (leftKey.charAt(0) < rightKey.charAt(0)) { return -1; }
-	                                    else { return 1; }
-	                                });
+                        if (leftKey.charAt(0) < rightKey.charAt(0)) { return -1; }
+                        else { return 1; }
+                    });
 					units.sort(function (a, b) {
-									//trier selon les preference settings, coef ou name
-	                                    if (a.coef < b.coef) { return -1; }
-	                                    else { return 1; }
-	                                });
+						//trier selon les preference settings, coef ou name
+						if(localStorage.getItem('SORT')=="name"){
+                            var leftKey = a.name.toUpperCase();
+                            var rightKey = b.name.toUpperCase();
+
+                            if (leftKey.charAt(0) == rightKey.charAt(0)) {
+                                if (leftKey.charAt(1) < rightKey.charAt(1)) { return -1; }
+                                else { return 1; }
+                            }
+
+                            if (leftKey.charAt(0) < rightKey.charAt(0)) { return -1; }
+                            else { return 1; }
+						}else{
+                            if (a.coef < b.coef) { return -1; }
+                            else { return 1; }									
+                        }
+                	});
 					constants.sort(function (a, b) {
-	                                    var leftKey = a.name.toUpperCase();
-	                                    var rightKey = b.name.toUpperCase();
+                        var leftKey = a.name.toUpperCase();
+                        var rightKey = b.name.toUpperCase();
 
-	                                    if (leftKey.charAt(0) == rightKey.charAt(0)) {
-	                                        if (leftKey.charAt(1) < rightKey.charAt(1)) { return -1; }
-	                                        else { return 1; }
-	                                    }
+                        if (leftKey.charAt(0) == rightKey.charAt(0)) {
+                            if (leftKey.charAt(1) < rightKey.charAt(1)) { return -1; }
+                            else { return 1; }
+                        }
 
-	                                    if (leftKey.charAt(0) < rightKey.charAt(0)) { return -1; }
-	                                    else { return 1; }
-	                                });
+                        if (leftKey.charAt(0) < rightKey.charAt(0)) { return -1; }
+                        else { return 1; }
+                    });
 					constantsCategories.sort(function (a, b) {
-	                                    var leftKey = a.name.toUpperCase();
-	                                    var rightKey = b.name.toUpperCase();
+                        var leftKey = a.name.toUpperCase();
+                        var rightKey = b.name.toUpperCase();
 
-	                                    if (leftKey.charAt(0) == rightKey.charAt(0)) {
-	                                        if (leftKey.charAt(1) < rightKey.charAt(1)) { return -1; }
-	                                        else { return 1; }
-	                                    }
+                        if (leftKey.charAt(0) == rightKey.charAt(0)) {
+                            if (leftKey.charAt(1) < rightKey.charAt(1)) { return -1; }
+                            else { return 1; }
+                        }
 
-	                                    if (leftKey.charAt(0) < rightKey.charAt(0)) { return -1; }
-	                                    else { return 1; }
-	                                });
+                        if (leftKey.charAt(0) < rightKey.charAt(0)) { return -1; }
+                        else { return 1; }
+                    });
 					var letter="";
 					var idAnchor="";
 
@@ -294,6 +307,7 @@ $(document).ready(function(){
 		localStorage.setItem("EXPONENTIAL","false");
 		localStorage.setItem("PRECISION",6);
 		localStorage.setItem("LANG","FR");
+		localStorage.setItem("SORT","name");
 	}
 
 

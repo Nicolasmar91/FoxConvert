@@ -30,6 +30,8 @@ $(document).ready(function(){
 		//event pour actualiser les valeurs de la liste deroulante de choix des langues dans les paramètres
 		$("#fakeTrigger").trigger("change");
 		$("#precision").selectpicker("refresh");
+		$("#tri").selectpicker("refresh");
+
 
 		//on charge la dropdown ici car on a besoin des translates
 		$.getJSON( "data/menu.json", function( data ) {
@@ -41,12 +43,12 @@ $(document).ready(function(){
 			$.each($("#menu [trad]"),function(){
 				$(this).html(TRANSLATES[$(this).attr("trad")]);
 			});
-
-			//on set la value selon les paramètres existants
-			$("#language").val(localStorage.getItem("LANG")).trigger('change',"NO_RELOAD_LOCATION").selectpicker("refresh");
 		});
 
-
+		//on set la value selon les paramètres existants
+		//on le fait ici car le <select> des langue de l'écran settings.html est pop en meme temps que le chargement du fichier de traduction (si on rajoute une langue --> ajout automatique)
+		$("#language").val(localStorage.getItem("LANG")).trigger('change',"NO_RELOAD_LOCATION").selectpicker("refresh");
+		
 		//mettre la bonne traduction dans le placeHolder page de conversion
 		$("#input").attr("placeHolder",$("#placeHolderInput").html());
 	});   

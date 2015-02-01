@@ -136,7 +136,20 @@ h2{
 	height: 50px;
 	font-size: 2rem;
 }
-
-
+.symbol{
+	float:right;
+	font-size:4rem;
+	line-height: 6rem;
+	margin-right: 6px;
+}
+.value{
+	font-size:1.5rem;
+	margin-bottom:0px;
+	color:grey;
+}
+.blue{
+	color:#2d69bb;
+	font-size: 2rem;
+}
 
 

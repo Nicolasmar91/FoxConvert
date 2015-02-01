@@ -23,9 +23,16 @@ $(document).ready(function(){
 		}
 	});
 
-	//on set la value selon les paramètres existants
-	$("#precision").val(localStorage.getItem("PRECISION")).trigger('change',"NO_RESET_VALUE").selectpicker("refresh");
+	//on set la value TRI selon les paramètres existants
+	$("#tri").val(localStorage.getItem("SORT")).trigger('change',"NO_RESET_VALUE").selectpicker("refresh");
+	$("#tri").change(function(e,data){
+		if(data!="NO_RESET_VALUE"){
+			localStorage.setItem("SORT",$(this).val());
+		}
+	});
 
+	//on set la value PRECISION selon les paramètres existants
+	$("#precision").val(localStorage.getItem("PRECISION")).trigger('change',"NO_RESET_VALUE").selectpicker("refresh");
 	$("#precision").change(function(e,data){
 		if(data!="NO_RESET_VALUE"){
 			localStorage.setItem("PRECISION",$(this).val());

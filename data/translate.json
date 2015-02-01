@@ -18,7 +18,10 @@
 	{ "key":"SETTINGS_LNG", "label":"Langage"},
 	{ "key":"SETTINGS_EXPO", "label":"Notation exponentielle"},
 	{ "key":"SETTINGS_EXACT_VAL", "label":"Valeur exacte"},
-	{ "key":"SETTINGS_PRECISION", "label":"Précision"}
+	{ "key":"SETTINGS_PRECISION", "label":"Précision"},
+	{ "key":"SETTINGS_SORT", "label":"Tier les unités par"},
+	{ "key":"SETTINGS_BY_COEF", "label":"Ordre de grandeur"},
+	{ "key":"SETTINGS_BY_NAME", "label":"Ordre alphabétique"}
 ],
 "EN":[
 	{ "key":"MENU_CONVERSION", "label":"Convert"},
@@ -39,5 +42,8 @@
 	{ "key":"SETTINGS_LNG", "label":"Language"},
 	{ "key":"SETTINGS_EXPO", "label":"Exponential notation"},
 	{ "key":"SETTINGS_EXACT_VAL", "label":"Exact value"},
-	{ "key":"SETTINGS_PRECISION", "label":"Precision"}
+	{ "key":"SETTINGS_PRECISION", "label":"Precision"},
+	{ "key":"SETTINGS_SORT", "label":"Sort units by"},
+	{ "key":"SETTINGS_BY_COEF", "label":"Magnitude"},
+	{ "key":"SETTINGS_BY_NAME", "label":"Alphabetical order"}
 ]}
