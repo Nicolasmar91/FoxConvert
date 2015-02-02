@@ -3,5 +3,6 @@
 	{ "label":"MENU_CONVERSION","href":"index.html"},
 	{ "label":"MENU_CONSTANTES","href":"constants.html"},
 	{ "label":"MENU_SETTINGS","href":"settings.html"},
-	{ "label":"MENU_ABOUT","href":"about.html"}
+	{ "label":"MENU_ABOUT","href":"about.html"},
+	{ "label":"MENU_ABOUT","href":"tst.html"}
 ]}

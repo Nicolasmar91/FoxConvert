@@ -17,7 +17,7 @@ $(document).ready(function(){
 	var hauteurBloc=$('a[href="#anchor_A"]').parent().height();
 	var initialPos = $("nav[data-type=\"scrollbar\"]").position().top;
 	var screenIsScrolled = false; //sert a savoir s'il faut recalculer les position des "lettres"
-
+	var isMonnaie=false;
 	var currentCtg = 0;
 
 	function calcLetterPos(){
@@ -29,14 +29,24 @@ $(document).ready(function(){
 	}
 
 	function loadUnits(id){
+		if(id==25)
+			isMonnaie=true;
 		var selected="";
 		$("#unitsIn, #unitsOut").html("");
 		$.each(units,function(key,data){
 			selected="";
 			if(data.category==id){
-				if(data.coef==1)
-					selected="selected";
-				$("#unitsIn, #unitsOut").append('<option '+selected+' value="'+data.coef+'" data-subtext="'+data.symbol+'">'+data.name+'</option>');
+				//si on est dans la catégorie monnaie
+				if(data.category==25&&data.id!=data.ref){
+					if(data.coef=='EUR')
+						selected="selected";
+					$("#unitsIn, #unitsOut").append('<option '+selected+' value="'+localStorage.getItem(data.coef)+'" data-subtext="'+data.symbol+'">'+data.name+'</option>');
+				}else{ 
+					//si on est dans le cas classique
+					if(data.coef==1)
+						selected="selected";
+					$("#unitsIn, #unitsOut").append('<option '+selected+' value="'+data.coef+'" data-subtext="'+data.symbol+'">'+data.name+'</option>');
+				}
 			}
 		});
 		$("#unitsIn, #unitsOut").selectpicker("refresh");
@@ -69,21 +79,50 @@ $(document).ready(function(){
 
 	function doCalc(){
 		if($.isNumeric($("#input").val())){
-	        var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
-	        
-	        if(localStorage.getItem("PRECISION")=="EXACTE"){
-	        	$("#output").html(nmb);
-	        }else{
-	        	if (localStorage.getItem("EXPONENTIAL")=="true" && (nmb > echellePos[localStorage.getItem("PRECISION")]-1 || nmb < echelleNeg[localStorage.getItem("PRECISION")])) {
-	          	    console.log("ici");
-	          	    $("#output").html(nmb.toExponential(localStorage.getItem("PRECISION")));
-		        } else {
-		        	$("#output").html(parseFloat($.number(nmb,localStorage.getItem("PRECISION"),".","")));
-		        }
-	        }
+			if(isMonnaie){
+				//cas monnaie
 
-	    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
-			majDisplay();
+				//convert to euro
+				var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
+		        var precision =localStorage.getItem("PRECISION");
+		        if(precision > 9) precision = 9;
+			    $("#output").html(parseFloat($.number(nmb,precision,".","")));
+
+		        /*
+		        if(localStorage.getItem("PRECISION")=="EXACTE"){
+		        	$("#output").html(nmb);
+		        }else{
+		        	if (localStorage.getItem("EXPONENTIAL")=="true" && (nmb > echellePos[localStorage.getItem("PRECISION")]-1 || nmb < echelleNeg[localStorage.getItem("PRECISION")])) {
+		          	    console.log("ici");
+		          	    $("#output").html(nmb.toExponential(localStorage.getItem("PRECISION")));
+			        } else {
+			        	$("#output").html(parseFloat($.number(nmb,localStorage.getItem("PRECISION"),".","")));
+			        }
+		        }
+		        */
+
+		    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
+				majDisplay();
+
+			}else{
+				//cas classique
+		        var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
+		        
+		        if(localStorage.getItem("PRECISION")=="EXACTE"){
+		        	$("#output").html(nmb);
+		        }else{
+		        	if (localStorage.getItem("EXPONENTIAL")=="true" && (nmb > echellePos[localStorage.getItem("PRECISION")]-1 || nmb < echelleNeg[localStorage.getItem("PRECISION")])) {
+		          	    console.log("ici");
+		          	    $("#output").html(nmb.toExponential(localStorage.getItem("PRECISION")));
+			        } else {
+			        	$("#output").html(parseFloat($.number(nmb,localStorage.getItem("PRECISION"),".","")));
+			        }
+		        }
+
+		    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
+				majDisplay();
+			}
+
 		}
 
 		if($(this).val()==""){
@@ -227,6 +266,29 @@ $(document).ready(function(){
 			});
 		});
 	});
+
+	//on lance le chargement des taux de change
+	if(navigator.onLine){
+		var xhr = new XMLHttpRequest({mozSystem: true});
+		xhr.open("GET", "http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml", true);
+		xhr.onreadystatechange = function() {
+		    if (xhr.readyState == 4) {
+				xmlDoc = $.parseXML( xhr.responseText ),
+			    $xml = $( xmlDoc );
+			    var dateToday = $xml.find("Cube[time]").attr("time");
+			    if (dateToday!=localStorage.getItem("LAST_MAJ_DATE")){
+			    	localStorage.setItem("LAST_MAJ_DATE",dateToday);
+			    	$($xml.find("Cube[rate]")).each(function(){	
+			    		$("#log").append("<br/>"+$(this).attr("currency")+' '+$(this).attr("rate"));
+			    	    localStorage.setItem($(this).attr("currency"),$(this).attr("rate"));
+			    	});
+			    }
+		    }
+		}
+		xhr.send();
+	}else{
+		console.log("je suis off");
+	}
 	//[end] chargement
 
 
@@ -280,6 +342,7 @@ $(document).ready(function(){
 
 		//on replace la fenetre en haut
 		$("#content").scrollTop(0);
+		isMonnaie=false;
 	});
 
 	$("#input").numeric();
@@ -299,8 +362,6 @@ $(document).ready(function(){
 	//on cache le span qui sert à stocker la traduction du placeholder
 	$("#placeHolderInput").hide();
 
-
-
 	//initialisation des parametre de reglage utilisateur
 	if(localStorage.length==0){
 		//valeur par defaut
@@ -308,6 +369,7 @@ $(document).ready(function(){
 		localStorage.setItem("PRECISION",6);
 		localStorage.setItem("LANG","FR");
 		localStorage.setItem("SORT","name");
+		localStorage.setItem("LAST_MAJ_DATE","1900-01-01");
 	}
 
 

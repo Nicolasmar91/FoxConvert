@@ -1,7 +1,6 @@
 
 { "units": [
 	{ "id": "1", "category": "1", "name": "Mètres", "symbol": "m", "ref": "1", "coef": "1"},
-
 	{ "id": "2", "category": "1", "name": "Décimètre", "symbol": "dm", "ref": "1", "coef": "0.1"},
 	{ "id": "3", "category": "1", "name": "Centimètre", "symbol": "cm", "ref": "1", "coef": "0.01"},
 	{ "id": "4", "category": "1", "name": "Millimètre", "symbol": "mm", "ref": "1", "coef": "0.001"},
@@ -132,5 +131,40 @@
 	{ "id": "609", "category": "13", "name": "PicoWatt", "symbol": "pW", "ref": "600", "coef": "0.000000000001"},
 	{ "id": "610", "category": "13", "name": "FemtoWatt", "symbol": "fW", "ref": "600", "coef": "0.000000000000001"},
 	{ "id": "611", "category": "13", "name": "ZeptoWatt", "symbol": "fW", "ref": "600", "coef": "0.000000000000000001"},
-	{ "id": "612", "category": "13", "name": "Cheval vapeur", "symbol": "hp", "ref": "600", "coef": "735.39875"}
+	{ "id": "612", "category": "13", "name": "Cheval vapeur", "symbol": "hp", "ref": "600", "coef": "735.39875"},
+
+	{ "id": "650", "category": "25", "name": "Euro", "symbol": "€", "ref": "650", "coef": "1"},
+	{ "id": "651", "category": "25", "name": "US dollar", "symbol": "$", "ref": "650", "coef": "USD"},
+	{ "id": "652", "category": "25", "name": "Japanese yen", "symbol": "", "ref": "650", "coef": "JPY"},
+	{ "id": "653", "category": "25", "name": "Bulgarian lev", "symbol": "", "ref": "650", "coef": "BGN"},
+	{ "id": "654", "category": "25", "name": "Czech koruna", "symbol": "", "ref": "650", "coef": "CZK"},
+	{ "id": "655", "category": "25", "name": "Danish krone", "symbol": "", "ref": "650", "coef": "DKK"},
+	{ "id": "656", "category": "25", "name": "Pound sterling", "symbol": "£", "ref": "650", "coef": "GBP"},
+	{ "id": "657", "category": "25", "name": "Hungarian forint", "symbol": "", "ref": "650", "coef": "HUF"},
+	{ "id": "658", "category": "25", "name": "Polish zloty", "symbol": "", "ref": "650", "coef": "PLN"},
+	{ "id": "659", "category": "25", "name": "Romanian leu", "symbol": "", "ref": "650", "coef": "RON"},
+	{ "id": "660", "category": "25", "name": "Swedish krona", "symbol": "", "ref": "650", "coef": "SEK"},
+	{ "id": "661", "category": "25", "name": "Swiss franc", "symbol": "", "ref": "650", "coef": "CHF"},
+	{ "id": "662", "category": "25", "name": "Norwegian krone", "symbol": "", "ref": "650", "coef": "NOK"},
+	{ "id": "663", "category": "25", "name": "Croatian kuna", "symbol": "", "ref": "650", "coef": "HRK"},
+	{ "id": "664", "category": "25", "name": "Russian rouble", "symbol": "", "ref": "650", "coef": "RUB"},
+	{ "id": "665", "category": "25", "name": "Turkish lira", "symbol": "", "ref": "650", "coef": "TRY"},
+	{ "id": "666", "category": "25", "name": "Australian dollar", "symbol": "", "ref": "650", "coef": "AUD"},
+	{ "id": "667", "category": "25", "name": "Brasilian real", "symbol": "", "ref": "650", "coef": "BRL"},
+	{ "id": "668", "category": "25", "name": "Canadian dollar", "symbol": "", "ref": "650", "coef": "CAD"},
+	{ "id": "669", "category": "25", "name": "Chinese yuan renminbi", "symbol": "", "ref": "650", "coef": "CNY"},
+	{ "id": "670", "category": "25", "name": "Hong Kong dollar", "symbol": "", "ref": "650", "coef": "HKD"},
+	{ "id": "671", "category": "25", "name": "Indonesian rupiah", "symbol": "", "ref": "650", "coef": "IDR"},
+	{ "id": "672", "category": "25", "name": "Israeli shekel", "symbol": "", "ref": "650", "coef": "ILS"},
+	{ "id": "673", "category": "25", "name": "Indian rupee", "symbol": "", "ref": "650", "coef": "INR"},
+	{ "id": "674", "category": "25", "name": "South Korean won", "symbol": "", "ref": "650", "coef": "KRW"},
+	{ "id": "675", "category": "25", "name": "Mexican peso", "symbol": "", "ref": "650", "coef": "MXN"},
+	{ "id": "676", "category": "25", "name": "Malaysian ringgit", "symbol": "", "ref": "650", "coef": "MYR"},
+	{ "id": "677", "category": "25", "name": "New Zealand dollar", "symbol": "", "ref": "650", "coef": "NZD"},
+	{ "id": "678", "category": "25", "name": "Philippine peso", "symbol": "", "ref": "650", "coef": "PHP"},
+	{ "id": "679", "category": "25", "name": "Singapore dollar", "symbol": "", "ref": "650", "coef": "SGD"},
+	{ "id": "680", "category": "25", "name": "Thai baht", "symbol": "", "ref": "650", "coef": "THB"},
+	{ "id": "681", "category": "25", "name": "South African rand", "symbol": "", "ref": "650", "coef": "ZAR"}
+
+
 ]}
