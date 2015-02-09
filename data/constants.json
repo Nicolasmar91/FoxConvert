@@ -1,13 +1,13 @@
 
 {"constants": [
-	{ "id": "1", "name":"Pi", "symbol":"π", "value":"3.14159","unit":"", "category":"1"},
-	{ "id": "2", "name":"Constante gravitationelle", "symbol":"G", "value":"6.6742e-11","unit":"N·m2·kg-2", "category":"2"},
-	{ "id": "3", "name":"Vitesse de la lumiére", "symbol":"c", "value":"299792458","unit":"m·s-1", "category":"1"},
-	{ "id": "4", "name":"Charge élémentaire", "symbol":"e", "value":"1.602176565e-19","unit":"A·s", "category":"3"},
-	{ "id": "5", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub>", "value":"6.02214129e23 ","unit":"mol-1", "category":"1"},
-	{ "id": "6", "name":"Constante des gaz parfaits", "symbol":"R", "value":"8.3144621","unit":"J·K-1·mol-1", "category":"2"},
-	{ "id": "7", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub><sup>A</sup>", "value":"6.02214129e23 ","unit":"mol-1", "category":"1"},
-	{ "id": "8", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub><sup>A</sup>", "value":"6.02214129e23 ","unit":"mol-1", "category":"1"},
-	{ "id": "9", "name":"Nombre d'Avogadro", "symbol":"N<sup>A</sup>", "value":"6.02214129e23 ","unit":"mol-1", "category":"1"},
-	{ "id": "10", "name":"Nombre d'Avogadro", "symbol":"Na", "value":"6.02214129e23 ","unit":"mol-1", "category":"1"}
+	{ "id": "1", "name":"Pi", "symbol":"π", "value":3.14159,"unit":"", "category":"1"},
+	{ "id": "2", "name":"Constante gravitationelle", "symbol":"G", "value":6.6742e-11,"unit":"N·m2·kg-2", "category":"2"},
+	{ "id": "3", "name":"Vitesse de la lumiére", "symbol":"c", "value":299792458,"unit":"m·s-1", "category":"1"},
+	{ "id": "4", "name":"Charge élémentaire", "symbol":"e", "value":1.602176565e-19,"unit":"A·s", "category":"3"},
+	{ "id": "5", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub>", "value":6.02214129e23,"unit":"mol-1", "category":"1"},
+	{ "id": "6", "name":"Constante des gaz parfaits", "symbol":"R", "value":8.3144621,"unit":"J·K-1·mol-1", "category":"2"},
+	{ "id": "7", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub><sup>A</sup>", "value":6.02214129e23,"unit":"mol-1", "category":"1"},
+	{ "id": "8", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub><sup>A</sup>", "value":6.02214129e23,"unit":"mol-1", "category":"1"},
+	{ "id": "9", "name":"Nombre d'Avogadro", "symbol":"N<sup>A</sup>", "value":6.02214129e23,"unit":"mol-1", "category":"1"},
+	{ "id": "10", "name":"Nombre d'Avogadro", "symbol":"Na", "value":6.02214129e23,"unit":"mol-1", "category":"1"}
 ]}

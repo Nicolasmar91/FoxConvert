@@ -85,21 +85,8 @@ $(document).ready(function(){
 				//convert to euro
 				var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
 		        var precision =localStorage.getItem("PRECISION");
-		        if(precision > 9) precision = 9;
+		        if(precision > 9 || precision == "EXACTE") precision = 9;
 			    $("#output").html(parseFloat($.number(nmb,precision,".","")));
-
-		        /*
-		        if(localStorage.getItem("PRECISION")=="EXACTE"){
-		        	$("#output").html(nmb);
-		        }else{
-		        	if (localStorage.getItem("EXPONENTIAL")=="true" && (nmb > echellePos[localStorage.getItem("PRECISION")]-1 || nmb < echelleNeg[localStorage.getItem("PRECISION")])) {
-		          	    console.log("ici");
-		          	    $("#output").html(nmb.toExponential(localStorage.getItem("PRECISION")));
-			        } else {
-			        	$("#output").html(parseFloat($.number(nmb,localStorage.getItem("PRECISION"),".","")));
-			        }
-		        }
-		        */
 
 		    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
 				majDisplay();
@@ -112,7 +99,6 @@ $(document).ready(function(){
 		        	$("#output").html(nmb);
 		        }else{
 		        	if (localStorage.getItem("EXPONENTIAL")=="true" && (nmb > echellePos[localStorage.getItem("PRECISION")]-1 || nmb < echelleNeg[localStorage.getItem("PRECISION")])) {
-		          	    console.log("ici");
 		          	    $("#output").html(nmb.toExponential(localStorage.getItem("PRECISION")));
 			        } else {
 			        	$("#output").html(parseFloat($.number(nmb,localStorage.getItem("PRECISION"),".","")));
@@ -268,6 +254,7 @@ $(document).ready(function(){
 	});
 
 	//on lance le chargement des taux de change
+	//http://www.ecb.europa.eu/stats/exchange/eurofxref/html/index.en.html
 	if(navigator.onLine){
 		var xhr = new XMLHttpRequest({mozSystem: true});
 		xhr.open("GET", "http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml", true);

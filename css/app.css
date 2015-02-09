@@ -45,7 +45,9 @@ h1{
 h2{
 	padding-left: 1.5rem;
 }
-
+#about h2{
+	padding-right: 1.5rem;
+}
 #content{
 	position: absolute;
 	top: 5rem;
