@@ -18,6 +18,7 @@ $(document).ready(function(){
 	var initialPos = $("nav[data-type=\"scrollbar\"]").position().top;
 	var screenIsScrolled = false; //sert a savoir s'il faut recalculer les position des "lettres"
 	var isMonnaie=false;
+	var isTemperature=false;
 	var currentCtg = 0;
 
 	function calcLetterPos(){
@@ -31,6 +32,9 @@ $(document).ready(function(){
 	function loadUnits(id){
 		if(id==25)
 			isMonnaie=true;
+		if(id==3)
+			isTemperature=true;
+
 		var selected="";
 		$("#unitsIn, #unitsOut").html("");
 		$.each(units,function(key,data){
@@ -77,37 +81,112 @@ $(document).ready(function(){
 
 	}
 
+	//* subroutine to convert celsius to fahrenheit *//
+	function c2f(temperature){
+		return parseFloat(temperature) * 9 / 5 + 32;
+	}
+
+	//* subroutine to convert fahrenheit to celsius *//
+	function f2c(temperature){
+		return (parseFloat(temperature)-32) * 5 / 9;
+	}
+
+	//* subroutine to convert celsius to kelvin *//
+	function c2k(temperature){
+		return parseFloat(temperature) + 273.15;
+	}
+
+	//* subroutine to convert celsius to kelvin *//
+	function k2c(temperature){
+		return parseFloat(temperature) - 273.15;
+	}
+
+	//* subroutine to convert celsius to kelvin *//
+	function f2K(temperature){
+		return (parseFloat(temperature) - 273.15)* 1.8000 + 32.00;
+	}
+
+	//* subroutine to convert celsius to kelvin *//
+	function k2f(temperature){
+		return (parseFloat(temperature) - 32)/ 1.8000 + 273.15;
+	}
+
 	function doCalc(){
 		if($.isNumeric($("#input").val())){
-			if(isMonnaie){
-				//cas monnaie
+			if(isTemperature){
+				var res=$("#input").val();
+				switch($("#unitsIn").val()) {
+				    case "C":
+				        switch($("#unitsOut").val()) {
+						    case "F":
+						        res=c2f($("#input").val());
+						        break;
+						    case "K":
+						        res=c2k($("#input").val());
+						        break;
+						}
+				        break;
+				    case "F":
+				        switch($("#unitsOut").val()) {
+						    case "C":
+						        res=f2c($("#input").val());
+						        break;
+						    case "K":
+						        res=f2k($("#input").val());
+						        break;
+						}
+				        break;
+				    case "K":
+				        switch($("#unitsOut").val()) {
+						    case "C":
+						        res=k2c($("#input").val());
+						        break;
+						    case "F":
+						        res=k2f($("#input").val());
+						        break;
+						}
+				        break;
+				}
 
-				//convert to euro
-				var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
-		        var precision =localStorage.getItem("PRECISION");
-		        if(precision > 9 || precision == "EXACTE") precision = 9;
-			    $("#output").html(parseFloat($.number(nmb,precision,".","")));
+				res=parseFloat(res);
 
-		    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
-				majDisplay();
-
-			}else{
-				//cas classique
-		        var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
-		        
-		        if(localStorage.getItem("PRECISION")=="EXACTE"){
-		        	$("#output").html(nmb);
-		        }else{
-		        	if (localStorage.getItem("EXPONENTIAL")=="true" && (nmb > echellePos[localStorage.getItem("PRECISION")]-1 || nmb < echelleNeg[localStorage.getItem("PRECISION")])) {
-		          	    $("#output").html(nmb.toExponential(localStorage.getItem("PRECISION")));
-			        } else {
-			        	$("#output").html(parseFloat($.number(nmb,localStorage.getItem("PRECISION"),".","")));
+				 if(localStorage.getItem("PRECISION")=="EXACTE"){
+			        	$("#output").html(res);
+			        }else{
+			        	if (localStorage.getItem("EXPONENTIAL")=="true" && (res > echellePos[localStorage.getItem("PRECISION")]-1 || res < echelleNeg[localStorage.getItem("PRECISION")])) {
+			          	    $("#output").html(res.toExponential(localStorage.getItem("PRECISION")));
+				        } else {
+				        	$("#output").html(parseFloat($.number(res,localStorage.getItem("PRECISION"),".","")));
+				        }
 			        }
-		        }
+			}else{
+				if(isMonnaie){
+					//cas monnaie
 
-		    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
-				majDisplay();
+					//convert to euro
+					var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
+			        var precision =localStorage.getItem("PRECISION");
+			        if(precision > 9 || precision == "EXACTE") precision = 9;
+				    $("#output").html(parseFloat($.number(nmb,precision,".","")));
+
+				}else{
+					//cas classique
+			        var nmb = new Number(($("#input").val() * $("#unitsIn").val()) / $("#unitsOut").val());
+			        
+			        if(localStorage.getItem("PRECISION")=="EXACTE"){
+			        	$("#output").html(nmb);
+			        }else{
+			        	if (localStorage.getItem("EXPONENTIAL")=="true" && (nmb > echellePos[localStorage.getItem("PRECISION")]-1 || nmb < echelleNeg[localStorage.getItem("PRECISION")])) {
+			          	    $("#output").html(nmb.toExponential(localStorage.getItem("PRECISION")));
+				        } else {
+				        	$("#output").html(parseFloat($.number(nmb,localStorage.getItem("PRECISION"),".","")));
+				        }
+			        }
+				}
 			}
+
+			$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
+			majDisplay();
 
 		}
 
