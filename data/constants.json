@@ -1,13 +1,18 @@
 
 {"constants": [
-	{ "id": "1", "name":"Pi", "symbol":"π", "value":3.14159,"unit":"", "category":"1"},
-	{ "id": "2", "name":"Constante gravitationelle", "symbol":"G", "value":6.6742e-11,"unit":"N·m2·kg-2", "category":"2"},
-	{ "id": "3", "name":"Vitesse de la lumiére", "symbol":"c", "value":299792458,"unit":"m·s-1", "category":"1"},
-	{ "id": "4", "name":"Charge élémentaire", "symbol":"e", "value":1.602176565e-19,"unit":"A·s", "category":"3"},
-	{ "id": "5", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub>", "value":6.02214129e23,"unit":"mol-1", "category":"1"},
-	{ "id": "6", "name":"Constante des gaz parfaits", "symbol":"R", "value":8.3144621,"unit":"J·K-1·mol-1", "category":"2"},
-	{ "id": "7", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub><sup>A</sup>", "value":6.02214129e23,"unit":"mol-1", "category":"1"},
-	{ "id": "8", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub><sup>A</sup>", "value":6.02214129e23,"unit":"mol-1", "category":"1"},
-	{ "id": "9", "name":"Nombre d'Avogadro", "symbol":"N<sup>A</sup>", "value":6.02214129e23,"unit":"mol-1", "category":"1"},
-	{ "id": "10", "name":"Nombre d'Avogadro", "symbol":"Na", "value":6.02214129e23,"unit":"mol-1", "category":"1"}
+	{ "id": "1", "name":"Pi", "symbol":"π", "value":3.14159,"unit":""},
+	{ "id": "2", "name":"Constante gravitationelle", "symbol":"G", "value":6.6742e-11,"unit":"N·m2·kg-2"},
+	{ "id": "3", "name":"Vitesse de la lumiére", "symbol":"c", "value":299792458,"unit":"m·s-1"},
+	{ "id": "4", "name":"Vitesse du son", "symbol":"", "value":343,"unit":"m·s-1"},
+	{ "id": "5", "name":"Charge élémentaire", "symbol":"e", "value":1.602176565e-19,"unit":"A·s"},
+	{ "id": "6", "name":"Nombre d'Avogadro", "symbol":"N<sub>A</sub>", "value":6.02214129e23,"unit":"mol-1"},
+	{ "id": "7", "name":"Constante des gaz parfaits", "symbol":"R", "value":8.3144621,"unit":"J·K-1·mol-1"},
+	{ "id": "8", "name":"Masse du proton", "symbol":"m<sub>p</sub>", "value":1.67262171e-27,"unit":"kg"},
+	{ "id": "9", "name":"Masse du neutron", "symbol":"m<sub>n</sub>", "value":1.67492728e-27,"unit":"kg"},
+	{ "id": "10", "name":"Masse de l'électron", "symbol":"m<sub>e</sub>", "value":9.1093826e-31,"unit":"kg"},
+	{ "id": "11", "name":"Masse du muon", "symbol":"m<sub>µ</sub>", "value":1.88353140e-28,"unit":"kg"},
+	{ "id": "12", "name":"Masse du tauon", "symbol":"m<sub>τ</sub>", "value":3.16777e-27,"unit":"kg"},
+	{ "id": "13", "name":"Masse du boson Z°", "symbol":"m<sub>Z°</sub>", "value":1.62556e-25,"unit":"kg"},
+	{ "id": "14", "name":"Masse du boson W", "symbol":"m<sub>W</sub>", "value":1.4334e-25,"unit":"kg"},
+	{ "id": "15", "name":"Constante de Planck", "symbol":"h", "value":6.6260693e-34,"unit":"kg·m2·s-1"}
 ]}

@@ -61,10 +61,18 @@ $(document).ready(function(){
         $("#resultat .minimize").css('font-size', initialMinimizeSize+"px");
         $("#resultat").css('line-height', initialOutputSize+"px");
 		$("#output").css('font-size', initialOutputSize+"px");
+		$("#unitsOut").selectpicker("render");
+    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
+
+
+		//si on convertit en bitS
+		if($("#resultat .minimize").text().indexOf("bit")!=-1){
+			$("#resultat .minimize").append("s")
+		}
 
         //on adapte la taille en fonction du nombre de decimal	
         var i=1;
-		while($("#resultat").outerWidth()<=$("#output").innerWidth()){
+		while($("#resultat").outerWidth()<=$("#output").innerWidth()+$("#resultat .minimize").innerWidth()-10){
 			$("#output").css('font-size', (initialOutputSize - i)+"px");
      	    $("#resultat").css('line-height', (initialOutputSize - i)+"px");
 
@@ -75,9 +83,6 @@ $(document).ready(function(){
 		}
 
 		//$("#resultat").css("margin-right",15+$("#resultat .minimize").width()/2);
-
-        $("#unitsOut").selectpicker("render");
-    	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
 
 	}
 
@@ -322,7 +327,7 @@ $(document).ready(function(){
 						$("#secondaryTitle").html($(this).html());
 						$("#secondaryTitle").fadeIn(50);
 						var i=1;
-						while(/*$("#secondaryTitle").outerHeight()>=$("#titleArea").innerHeight() &&*/ $("#secondaryTitle").outerWidth()>=$("#titleArea").innerWidth()-16){
+						while(/*$("#secondaryTitle").outerHeight()>=$("#titleArea").innerHeight() &&*/ $("#secondaryTitle").outerWidth()>=$("#titleArea").innerWidth()-18){
 							$("#secondaryTitle").css('font-size', initialH1Size - i);
 							i++;
 						}
