@@ -11,7 +11,6 @@ $(document).ready(function(){
 	var listLetter = [];
 	var echelleNeg = {"EXACTE":0.00000000000000000000000001, 0:1, 1:0.1, 2:0.01, 3:0.001, 4:0.0001, 5:0.00001 ,6:0.000001 ,7:0.0000001 ,8:0.00000001 ,9:0.00000001};
 	var echellePos = {"EXACTE":1000000000000000000000000000, 0:1, 1:10, 2:100, 3:1000, 4:10000, 5:100000 ,6:10000000 ,7:100000000 ,8:1000000000 ,9:10000000000};
-	//var listDisplayLetter = [];
 	var distanceToScrollWhenKBisShow=0;
 	var decalageHeader = $('nav[data-type="scrollbar"]').position().top;
 	var hauteurBloc=$('a[href="#anchor_A"]').parent().height();
@@ -21,6 +20,7 @@ $(document).ready(function(){
 	var isTemperature=false;
 	var currentCtg = 0;
 
+	//positionne les lettre de la scroll alphabetique
 	function calcLetterPos(){
 		$.each($('a[href^="#anchor_"]'),function(){
 			listLetter.push({letter : $(this).html(), 
@@ -29,6 +29,7 @@ $(document).ready(function(){
 		});
 	}
 
+	//chargement des unité selon l'id de la catégorie
 	function loadUnits(id){
 		if(id==25)
 			isMonnaie=true;
@@ -56,6 +57,7 @@ $(document).ready(function(){
 		$("#unitsIn, #unitsOut").selectpicker("refresh");
 	}
 
+	//mise à jour de l'affichage du resultat (re-size etc...)
 	function majDisplay(){
 		 //affichge du resultat
         $("#resultat .minimize").css('font-size', initialMinimizeSize+"px");
@@ -106,16 +108,17 @@ $(document).ready(function(){
 		return parseFloat(temperature) - 273.15;
 	}
 
-	//* subroutine to convert celsius to kelvin *//
+	//* subroutine to convert fahrenheit to kelvin *//
 	function f2K(temperature){
 		return (parseFloat(temperature) - 273.15)* 1.8000 + 32.00;
 	}
 
-	//* subroutine to convert celsius to kelvin *//
+	//* subroutine to convert kelvin to fahrenheit *//
 	function k2f(temperature){
 		return (parseFloat(temperature) - 32)/ 1.8000 + 273.15;
 	}
 
+	//fonction que effectue la conversion
 	function doCalc(){
 		if($.isNumeric($("#input").val())){
 			if(isTemperature){
@@ -221,11 +224,6 @@ $(document).ready(function(){
 					constants.push(obj);
 				});
 			}).then(function(dataReturn,text,status){
-				$.getJSON( "data/constantsCategories.json", function( data ) {
-					$.each(data.constantsCategories,function(index,obj){
-						constantsCategories.push(obj);
-					});
-				}).then(function(dataReturn,text,status){
 					categories.sort(function (a, b) {
                         var leftKey = a.name.toUpperCase();
                         var rightKey = b.name.toUpperCase();
@@ -283,6 +281,7 @@ $(document).ready(function(){
 					var letter="";
 					var idAnchor="";
 
+					//rendre les lettre "cliquable" s'il existe une catégorie commencant par cette lettre
 					$.each(categories,function(i,obj){
 						if(letter!=obj.name.substr(0,1).toUpperCase()){
 							letter=obj.name.substr(0,1).toUpperCase();
@@ -290,11 +289,6 @@ $(document).ready(function(){
 
 							//liste des lettre du scroll
 							$('a[href="#anchor_'+letter+'"]').removeClass("disabled");
-							/*
-							listDisplayLetter.push({letter : letter, 
-													top:$('a[href="#anchor_'+letter+'"]').parent().position().top,
-													a:$('a[href="#anchor_'+letter+'"]')});
-							*/
 
 							//rendre la letre cliquable avec une ancre prenant en compte la taille du header
 							$('a[href="#anchor_'+letter+'"]').click(function(e){
@@ -331,7 +325,6 @@ $(document).ready(function(){
 							$("#secondaryTitle").css('font-size', initialH1Size - i);
 							i++;
 						}
-					});
 				});
 			});
 		});
@@ -362,8 +355,8 @@ $(document).ready(function(){
 	}
 	//[end] chargement
 
-
-	 $('a[href^="#anchor_"]').bind('touchstart', function(e) {
+	//gestion de l'affichage du "popover" du scroll alphabetique
+	$('a[href^="#anchor_"]').bind('touchstart', function(e) {
 		$("#content").css({overflow:"hidden"});
 	});
 	$('a[href^="#anchor_"]').bind('touchend', function(e) {
@@ -396,6 +389,7 @@ $(document).ready(function(){
 
 
 	//---------------- conversion -----------------
+	//retour à l'accueil
 	$("#navHeader").click(function(){
 		$("#content").fadeIn(150);
 		$("#mainTitle").show();
@@ -418,9 +412,9 @@ $(document).ready(function(){
 
 	$("#input").numeric();
 
-	$("#input").keyup(doCalc);
+	$("#input").keyup(doCalc);//on recalcul des que la valeur de l'input change
 
-	$("#unitsOut, #unitsIn").change(doCalc);
+	$("#unitsOut, #unitsIn").change(doCalc);//on recalcul des qu'une des unités change
 
 	//quand le clavier apparait on scroll pour afficher le resultat au dessus du clavier
 	$(window).resize(function(){

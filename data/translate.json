@@ -1,5 +1,7 @@
 { 
 "FR": [
+	{ "key":"VERSION", "label":"1.0"},
+
 	{ "key":"MENU_CONVERSION", "label":"Conversion"},
 	{ "key":"MENU_CONSTANTES", "label":"Mémo des constantes"},
 	{ "key":"MENU_SETTINGS", "label":"Paramètres"},
@@ -9,6 +11,10 @@
 	{ "key":"MENU_LNG_EN", "label":"Anglais", "code":"EN"},
 
 	{ "key":"HOME_SELECT", "label":"Selectionnez une catégorie"},
+
+	{ "key":"ABOUT_MONEY", "label":"Les taux de change des monnaies proviennent du site web de la banque centrale européene."},
+	{ "key":"ABOUT_GIT", "label":"Dépot GitHub pour plus d'information :"},
+	{ "key":"ABOUT_GIT_HTTP", "label":"http://github.com/Nicolasmar91/FoxConvert"},
 
 	{ "key":"CONVERSION_PLACEHOLDER", "label":"Valeur à convertir"},
 	{ "key":"CONVERSION_CONVERT", "label":"Convertir des"},
@@ -24,6 +30,8 @@
 	{ "key":"SETTINGS_BY_NAME", "label":"Ordre alphabétique"}
 ],
 "EN":[
+	{ "key":"VERSION", "label":"1.0"},
+
 	{ "key":"MENU_CONVERSION", "label":"Convert"},
 	{ "key":"MENU_CONSTANTES", "label":"Constants list"},
 	{ "key":"MENU_SETTINGS", "label":"Settings"},
@@ -33,6 +41,10 @@
 	{ "key":"MENU_LNG_EN", "label":"English", "code":"EN"},
 
 	{ "key":"HOME_SELECT", "label":"Chose a category"},
+
+	{ "key":"ABOUT_MONEY", "label":"The exchange rates of the currencies come from the website of EU central bank."},
+	{ "key":"ABOUT_GIT", "label":"GitHub repository for more information :"},
+	{ "key":"ABOUT_GIT_HTTP", "label":"http://github.com/Nicolasmar91/FoxConvert"},
 
 	{ "key":"CONVERSION_PLACEHOLDER", "label":"Value to convert"},
 	{ "key":"CONVERSION_CONVERT", "label":"Convert some"},
