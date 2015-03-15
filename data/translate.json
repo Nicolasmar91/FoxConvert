@@ -3,7 +3,7 @@
 	{ "key":"VERSION", "label":"1.0"},
 
 	{ "key":"MENU_CONVERSION", "label":"Conversion"},
-	{ "key":"MENU_CONSTANTES", "label":"Mémo des constantes"},
+	{ "key":"MENU_CONSTANTES", "label":"Constantes"},
 	{ "key":"MENU_SETTINGS", "label":"Paramètres"},
 	{ "key":"MENU_ABOUT", "label":"A propos"},
 

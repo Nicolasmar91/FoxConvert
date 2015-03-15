@@ -35,5 +35,11 @@ $(document).ready(function(){
 	        }
 			$("#liste-const").append('<div class="list-group-item col-xs-12 col-sm-6 col-md-3"><div class="symbol">'+obj.symbol+'</div><p>'+obj.name+'</p><p class="value"><span class="blue">'+val+'</span> '+obj.unit+'</p></div>');
 		});
+
+		var i=1;
+		while($("#mainTitle").outerWidth()>=$("#titleArea").innerWidth()-18){
+			$("#mainTitle").css('font-size', initialH1Size - i);
+			i++;
+		}
 	});
 });

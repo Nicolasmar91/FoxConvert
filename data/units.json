@@ -267,7 +267,4 @@
 	{ "id": "1157", "category": "14", "name": "Noeud", "symbol": "m/s", "ref": "1150", "coef": "0.51"},
 	{ "id": "1158", "category": "14", "name": "Vitesse de la lumière", "symbol": "m/s", "ref": "1150", "coef": "299792458"},
 	{ "id": "1159", "category": "14", "name": "Vitesse du son", "symbol": "m/s", "ref": "1150", "coef": "343"}
-
-
-
 ]}
