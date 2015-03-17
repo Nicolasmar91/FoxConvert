@@ -64,6 +64,7 @@ $(document).ready(function(){
         $("#resultat").css('line-height', initialOutputSize+"px");
 		$("#output").css('font-size', initialOutputSize+"px");
 		$("#unitsOut").selectpicker("render");
+		$("#resultat span.minimize").html("");//forcer la mise a zero si la ligne d'en dessous .html() = null
     	$("#resultat span.minimize").html($("button[data-id=unitsOut] .text-muted").html());
 
 
