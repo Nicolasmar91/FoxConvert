@@ -12,7 +12,7 @@
 	position: fixed;
 	top:0px;
 	width:100%;
-	z-index:9999;
+	z-index:1000;
 }
 
 header div {
@@ -60,7 +60,6 @@ h2{
 	top: 5rem;
 	height: calc(100% - 5rem);
 	width:100%;
-	overflow: auto;
 }
 #about{
 	position: absolute;
